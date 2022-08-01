@@ -1,0 +1,17 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: liteblue !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: hsl(0, 0%, 30%);
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

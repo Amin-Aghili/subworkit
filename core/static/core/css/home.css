@@ -1,0 +1,21 @@
+/* Full height image header */
+.big-img {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/mac.jpg");
+  min-height: 100%;
+  position: relative;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../img/mac.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

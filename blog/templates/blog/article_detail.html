@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/article-detail.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<br><br>
+<div class="center">
+<h2> تماشای ویدیو از کانال یوتیوب ما</h2>
+
+    <hr>
+        {% video article.video '900x650' %}
+
+<!--        {% if articles.video %}-->
+<!--            <video width='800' controls>-->
+<!--                <source src='{{ article.video.url }}' type='video/mp4'>-->
+<!--                 Your browser does not support the video tag.-->
+<!--             </video>-->
+<!--        {% endif %}-->
+
+        {{ article.body|safe }}
+
+</div>
+{% endblock %}

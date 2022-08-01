@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{% url 'accounts:profile_edit' request.user.id %}" class="nav-link active" aria-current="page" >Edit</a>
+    <a href=""><img src="{{ request.user.avatar_url }}" alt=""></a>
+
+    <p>My Profile</p>
+    <hr>
+    <p>{{ user.full_name }}</p>
+    <p>{{ user.profile.bio }}</p>
+    <img src="{{ user.profile.avatar_url }}" alt="">
+
+{% endblock %}
