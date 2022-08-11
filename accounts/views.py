@@ -54,7 +54,7 @@ class UserRegistrationView(View):
             user = User.objects.create_user(cd['email'], cd['full_name'], cd['password2'])
             user.save()
             messages.success(request, 'You have successfully registered!', 'success')
-            return redirect('accounts:login')
+            return redirect('accounts:login.html')
 
         messages.error(request, 'Oops! Something went wrong!', 'danger')
         return render(request, self.template_name, {'form': form})

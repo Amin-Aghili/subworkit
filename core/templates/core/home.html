@@ -22,8 +22,12 @@
     <a href="#"><i class="fa-brands fa-twitter hover-opacity"></i></a>
     <a href="https://www.linkedin.com/in/amin-aghili/"><i class="fa-brands fa-linkedin hover-opacity"></i></a>
   </div>
-</header>
 
+</header>
+<!--whatsapp-->
+<div class=" whatsapp">
+  <a class="right " href="https://wa.me/989111172669/"><i class="fa-brands fa-square-whatsapp text-red fa-fw xxlarge margin-right"></i></a>
+</div>
 <!-- About Section -->
 <div class="container" style="padding:128px 16px" id="about">
   <h3 class="center">ABOUT THE COMPANY</h3>
@@ -75,8 +79,8 @@
       <div class="card">
         <img src="{% static 'core/img/team2.jpg' %}" alt="John" style="width:100%">
         <div class="container">
-          <h3>John Doe</h3>
-          <p class="opacity">CEO & Founder</p>
+          <h3>Bernard El Dib</h3>
+          <p class="opacity">The Godfather</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
           <p><button class="button light-grey block"><i class="fa fa-envelope"></i> Contact</button></p>
         </div>
@@ -97,7 +101,7 @@
       <div class="card">
         <img src="{% static 'core/img/team3.jpg' %}" alt="Mike" style="width:100%">
         <div class="container">
-          <h3>Mike Ross</h3>
+          <h3>Amin Aghili</h3>
           <p class="opacity">Web Designer</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
           <p><button class="button light-grey block"><i class="fa fa-envelope"></i> Contact</button></p>
@@ -178,7 +182,7 @@
 <div id="modal01" class="modal black" onclick="this.style.display='none'">
   <span class="button xxlarge black padding-large display-topright" title="Close Modal Image">×</span>
   <div class="modal-content animate-zoom center transparent padding-64">
-    <img id="img01" class="image">
+    <img id="img01" class="image" src="">
     <p id="caption" class="opacity large"></p>
   </div>
 </div>
@@ -202,7 +206,7 @@
       <div class="grey">
         <div class="container dark-grey center" style="width:85%">85%</div>
       </div>
-      <p class="wide"><i class="fa fa-photo margin-right"></i>Photoshop</p>
+      <p class="wide"><i class="fa-solid fa-image margin-right"></i>Photoshop</p>
       <div class="grey">
         <div class="container dark-grey center" style="width:75%">75%</div>
       </div>
@@ -226,9 +230,9 @@
           <h2 class="wide">$ 10</h2>
           <span class="opacity">per month</span>
         </li>
-        <li class="light-grey padding-24">
-          <button class="button black padding-large">Sign Up</button>
-        </li>
+<!--        <li class="light-grey padding-24">-->
+<!--          <button class="button black padding-large">Sign Up</button>-->
+<!--        </li>-->
       </ul>
     </div>
     <div class="third">
@@ -242,9 +246,9 @@
           <h2 class="wide">$ 25</h2>
           <span class="opacity">per month</span>
         </li>
-        <li class="light-grey padding-24">
-          <button class="button black padding-large">Sign Up</button>
-        </li>
+<!--        <li class="light-grey padding-24">-->
+<!--          <button class="button black padding-large">Sign Up</button>-->
+<!--        </li>-->
       </ul>
     </div>
     <div class="third section">
@@ -258,9 +262,9 @@
           <h2 class="wide">$ 50</h2>
           <span class="opacity">per month</span>
         </li>
-        <li class="light-grey padding-24">
-          <button class="button black padding-large">Sign Up</button>
-        </li>
+<!--        <li class="light-grey padding-24">-->
+<!--          <button class="button black padding-large">Sign Up</button>-->
+<!--        </li>-->
       </ul>
     </div>
   </div>
@@ -275,17 +279,17 @@
     <p><i class="fa fa-phone fa-fw xxlarge margin-right"></i> Phone: +00 151515</p>
     <p><i class="fa fa-envelope fa-fw xxlarge margin-right"> </i> Email: mail@mail.com</p>
     <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="input border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="input border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="input border" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="input border" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="button black" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
+<!--    <form action="/action_page.php" target="_blank">-->
+<!--      <p><input class="input border" type="text" placeholder="Name" required name="Name"></p>-->
+<!--      <p><input class="input border" type="text" placeholder="Email" required name="Email"></p>-->
+<!--      <p><input class="input border" type="text" placeholder="Subject" required name="Subject"></p>-->
+<!--      <p><input class="input border" type="text" placeholder="Message" required name="Message"></p>-->
+<!--      <p>-->
+<!--        <button class="button black" type="submit">-->
+<!--          <i class="fa fa-paper-plane"></i> SEND MESSAGE-->
+<!--        </button>-->
+<!--      </p>-->
+<!--    </form>-->
     <!-- Image of location/map -->
     <img src="{% static 'core/img/map.jpg' %}" class="image greyscale" style="width:100%;margin-top:48px">
   </div>
@@ -295,13 +299,18 @@
 <footer class="center black padding-64">
   <a href="#home" class="button light-grey"><i class="fa fa-arrow-up margin-right"></i>To the top</a>
   <div class="xlarge section">
-    <a href="#"><i class="fa-brands fa-square-facebook hover-opacity"></i></a>
-    <a href="#"><i class="fa-brands fa-instagram hover-opacity"></i></a>
-    <a href="#"><i class="fa-brands fa-snapchat hover-opacity"></i></a>
-    <a href="#"><i class="fa-brands fa-pinterest-p hover-opacity"></i></a>
-    <a href="#"><i class="fa-brands fa-twitter hover-opacity"></i></a>
-    <a href="#"><i class="fa-brands fa-linkedin hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/amin-aghili/"><i class="fa-brands fa-square-facebook hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/amin-aghili/"><i class="fa-brands fa-instagram hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/amin-aghili/"><i class="fa-brands fa-snapchat hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/amin-aghili/"><i class="fa-brands fa-pinterest-p hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/amin-aghili/"><i class="fa-brands fa-twitter hover-opacity"></i></a>
+    <a href="https://www.linkedin.com/in/amin-aghili/"><i class="fa-brands fa-linkedin hover-opacity"></i></a>
   </div>
 </footer>
 
 {% endblock %}
+
+{% block custom_js %}
+  <script type="text/javascript" src="{% static 'core/js/home.js' %}"></script>
+{% endblock %}
+

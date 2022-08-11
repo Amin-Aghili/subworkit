@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
 <head>
   <title>SubWorkIT</title>
   <meta charset="UTF-8">
@@ -29,7 +32,8 @@
   </script>
 
 </head>
-<body>
+<body {% if LANGUAGE_BIDI %} dir="rtl" {% endif %}>
+
   {% include 'inc/navbar.html' %}
 <!--  <div class="" style="padding:100px 0px 0px;">-->
     {% include 'inc/messages.html' %}

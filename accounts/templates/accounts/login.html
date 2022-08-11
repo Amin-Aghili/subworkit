@@ -2,58 +2,53 @@
 {% load static %}
 
 {% block custom_css %}
-	<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}">
+<!--	<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}">-->
 <!--	<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/style.css' %}">-->
 {% endblock %}
 
 
 
 {% block content %}
-<br><br>
-	<div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
+<div class="container center dark-grey ">
+  <br><br>
+  <div class="" style="padding:40px 16px 0px">
+    <div class="bar card " style="padding:0px 110px">
+      <h3 id="form-title">LOGIN</h3>
+    </div>
+  </div>
+	<div class="container" style="padding:0px 16px 100px">
+    <div class="bar card" style="padding:15px 40px">
+      <form method="POST" action="" class="left">
+        {% csrf_token %}
+        <div class="">
+          <div class="" >
+            <h5 class="left mrg-b0">Email</h5>
+          </div>
+          {{ form.email }}
+        </div>
+        <div class="">
+          <div class="">
+            <h5 class="left mrg-b0">Password</h5>
+          </div>
+          {{ form.password }}
+        </div>
+      <br>
+        <div class="margin-bottom">
+          <input class="button red" type="submit" style="padding:5px 20px" value="Login">
+        </div>
+      </form>
+      <div>
+        <div>
+          Don't have an account?<a href="{% url 'accounts:register' %}" class=""> SignUp</a>
+        </div>
+      </div>
 
-
-					<h3 id="form-title">LOGIN</h3>
-				</div>
-				<div class="d-flex justify-content-center form_container">
-					<form method="POST" action="">
-						{% csrf_token %}
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
-							</div>
-							{{ form.email }}
-						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-								{{ form.password }}
-						</div>
-
-							<div class="d-flex justify-content-center mt-3 login_container">
-				 				<input class="btn login_btn" type="submit" value="Login">
-				   			</div>
-					</form>
-
-				</div>
-
-				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'accounts:register' %}" class="ml-2">Sign Up</a>
-					</div>
-
-				</div>
-			</div>
 		</div>
 	</div>
-
+</div>
 {% endblock %}
 
 {% block custom_js %}
-	<script type="text/javascript" src="{% static 'accounts/js/register.js' %}"></script>
+<!--	<script type="text/javascript" src="{% static 'accounts/js/register.js' %}"></script>-->
 <!--	<script type="text/javascript" src="{% static 'accounts/js/script.js' %}"></script>-->
 {% endblock %}

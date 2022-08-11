@@ -1,28 +1,56 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 
 {% block custom_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 {% endblock %}
 
 <!-- Navbar (sit on top) -->
-<div class="top">
-  <div class="bar white card" id="myNavbar">
+<div class="top" {% if LANGUAGE_BIDI %} dir="rtl" {% endif %}>
 
+  <div class="bar white card" id="myNavbar">
     <a href="{% url 'core:home' %}" class="bar-item left wide button"><img class="logo-img" src="{% static 'img/SubWorkit_Logo.png' %}" alt=""></a>
+<!--languages form-->
+    <form id="lang" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}">
+      <select name="language" onchange="fn()" class="bar-item button small blue-grey" style="margin-left: -206px; width: auto; padding:0 0 0 0;">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+          <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+            {{ language.name_local }} ({{ language.code }})
+          </option>
+        {% endfor %}
+      </select>
+<!--      <input type="submit" value="Go">-->
+    </form>
     <!-- Right-sided navbar links -->
     <div class="right hide-small">
+<!--      <button class="bar-item button drop-btn" onclick="myFunction()">LANG-->
+<!--        <i class="fa fa-caret-down"></i>-->
+<!--      </button>-->
+<!--      <div class="dropdown-content" id="myDropdown">-->
+<!--        <a href="#">EN</a>-->
+<!--        <a href="#">TR</a>-->
+<!--      </div>-->
+
+
       {% if request.user.is_authenticated %}
         <a href="{% url 'accounts:logout' %}" class="bar-item button"><i class="fa fa-user"></i> LOGOUT </a>
       {% else %}
         <a href="{% url 'accounts:login' %}" class="bar-item button"><i class="fa fa-user"></i> LOGIN </a>
       {% endif %}
+      <a href="{% url 'cart:cart' %}" class="bar-item button " id="cart-icon" ><i class="fa-solid fa-cart-shopping" style="height: 20px"></i></a>
+      <span class='badge dark-gray' id='cart-total'> {{ cart_items }} </span>
     </div>
     <div class="left hide-small">
-      <a href="#about" class="bar-item button">ABOUT</a>
-      <a href="#team" class="bar-item button"><i class="fa fa-user"></i> TEAM</a>
-      <a href="#work" class="bar-item button"><i class="fa fa-th"></i> WORK</a>
-      <a href="#pricing" class="bar-item button"><i class="fa fa-usd"></i> PRICING</a>
-      <a href="#contact" class="bar-item button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="{% url 'core:home' %}#about" class="bar-item button">ABOUT</a>
+      <a href="{% url 'core:home' %}#team" class="bar-item button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="{% url 'core:home' %}#work" class="bar-item button"><i class="fa fa-th"></i> WORK</a>
+      <a href="{% url 'core:home' %}#pricing" class="bar-item button"><i class="fa fa-usd"></i> PRICING</a>
+      <a href="{% url 'core:home' %}#contact" class="bar-item button"><i class="fa fa-envelope"></i> CONTACT</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -35,17 +63,22 @@
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="sidebar bar-block black card animate-left hide-medium hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="side_close()" class="bar-item button large padding-16"> Close ×</a>
+  <a href="{% url 'core:home' %}#about" onclick="side_close()" class="bar-item button"> ABOUT</a>
+  <a href="{% url 'core:home' %}#work" onclick="side_close()" class="bar-item button"> PRODUCT</a>
+  <a href="{% url 'core:home' %}#pricing" onclick="side_close()" class="bar-item button"> PRICING</a>
+  <a href="{% url 'core:home' %}#contact" onclick="side_close()" class="bar-item button"> CONTACT</a>
   {% if request.user.is_authenticated %}
-    <a href="#about" onclick="side_close()" class="bar-item button"> LOGOUT</a>
+    <a href="{% url 'accounts:logout' %}" class="bar-item button"><i class="fa fa-user"></i> LOGOUT </a>
   {% else %}
-    <a href="#about" onclick="side_close()" class="bar-item button"> LOGIN</a>
+    <a href="{% url 'accounts:login' %}" class="bar-item button"><i class="fa fa-user"></i> LOGIN </a>
   {% endif %}
-  <a href="#about" onclick="side_close()" class="bar-item button"> ABOUT</a>
-  <a href="#work" onclick="side_close()" class="bar-item button"> PRODUCT</a>
-  <a href="#pricing" onclick="side_close()" class="bar-item button"> PRICING</a>
-  <a href="#contact" onclick="side_close()" class="bar-item button"> CONTACT</a>
+  <div>
+  <a href="{% url 'cart:cart' %}" class="bar-item button " id="cart-icon" ><i class="fa-solid fa-cart-shopping" style="height: 20px"></i><span class='badge dark-gray' id='cart-total' style="margin:-8px 0 0 3px"> {{ cart_items }} </span></a>
+
+  </div>
 </nav>
 
 {% block custom_js %}
-  <script type="text/javascript" src="{% static 'js/sidebar.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
+<!--	<script type="text/javascript" src="{% static 'accounts/js/script.js' %}"></script>-->
 {% endblock %}
